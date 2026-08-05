@@ -6,10 +6,7 @@
       "w": 1080,
       "h": 1350,
       "secret": false,
-      "items": [
-        "media/astronautas.png",
-        "media/cesarvallejo.png"
-      ]
+      "items": []
     },
     {
       "id": "reels",
