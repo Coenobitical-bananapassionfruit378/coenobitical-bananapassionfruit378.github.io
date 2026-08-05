@@ -6,9 +6,12 @@ Web estática, sin dependencias. Se publica tal cual en GitHub Pages.
 
 | Archivo | Qué es |
 |---|---|
-| `index.html` | Portada. «gilda fitnes» rebota por el lienzo tipo DVD. |
-| `portfolio.html` | Portadas en movimiento, formato 1080×1350. |
+| `index.html` | Portada. «gilda fitnes» rebota tipo DVD dentro del área del boceto. |
+| `portfolio.html` | Una tira de portadas en movimiento, formato 1080×1350. |
 | `reels.html` | Portfolio secreto (no enlazado, `noindex`), formato 1080×1920 para vídeo y gif. |
+| `gafas.svg` | El dibujo de las gafas, vectorizado del boceto original. |
+| `bounce.js` | El rebote tipo DVD. |
+| `marquee.js` | La tira en movimiento, el arrastre y el popup. |
 | `admin.html` | Panel para subir y borrar piezas con un token de GitHub. |
 | `data.json` | Lista de piezas de cada sección. |
 | `media/` | Los archivos. |
@@ -36,9 +39,11 @@ Medidas: portfolio 1080×1350, reels 1080×1920. Se recortan a esa proporción s
 
 ## Ajustes rápidos
 
-- Velocidad de los carteles: `CFG.baseSpeeds` en `portfolio.html` y `reels.html` (px por segundo; el signo marca la dirección).
-- Cuánto tarda en volver a su velocidad tras un arrastre: `CFG.tau`.
-- Número de filas: `CFG.rows`.
-- Tamaño de las piezas: `--ih` en el CSS.
-- Velocidad del rebote de la portada: `speed` en `index.html`.
-- Color: `--azul` en los cuatro archivos.
+- Velocidad de la tira: `baseSpeeds` al final de `portfolio.html` y `reels.html` (px por segundo; el signo marca la dirección).
+- Cuánto tarda en volver a su velocidad tras un arrastre: `tau`.
+- Tamaño de las piezas y separación: `--ih` y `--gap` en el CSS.
+- Velocidad del rebote: el número que se pasa a `bounce(...)` en cada página.
+- Área de rebote: `.area` en `index.html` y `.band` en `portfolio.html` y `reels.html`. Las medidas salen del recuadro del boceto.
+- Color: `--azul`.
+
+Todas las posiciones y tamaños de texto están sacados midiendo los bocetos, así que el encuadre coincide en escritorio y en móvil.
