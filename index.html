@@ -34,6 +34,8 @@
     width:min(100vw, 80dvh);  height:min(125vw, 100dvh);
   }
 
+  .ch{display:inline-block;white-space:pre;will-change:transform}
+
   .lbl{
     position:absolute;white-space:nowrap;
     font-size:var(--fs);line-height:1;
@@ -61,18 +63,22 @@
 
 <main class="stage">
 
-  <div class="area" id="area"><span class="logo" id="logo">gilda fitnes</span></div>
+  <div class="area" id="area"><span class="logo rb" id="logo">gilda fitnes</span></div>
 
-  <span class="lbl opticas">soluciones ópticas</span>
+  <span class="lbl opticas rb">soluciones ópticas</span>
   <img class="gafas" src="gafas.svg" alt="" aria-hidden="true">
 
-  <a class="lbl portfolio" href="portfolio.html">portfolio</a>
-  <a class="lbl mail" href="mailto:312rimini@gmail.com">312rimini@gmail.com</a>
-  <a class="lbl ig" href="https://www.instagram.com/gildafitnes/" target="_blank" rel="noopener">ig</a>
+  <a class="lbl portfolio rb" href="portfolio.html">portfolio</a>
+  <a class="lbl mail rb" href="mailto:312rimini@gmail.com">312rimini@gmail.com</a>
+  <a class="lbl ig rb" href="https://www.instagram.com/gildafitnes/" target="_blank" rel="noopener">ig</a>
 
 </main>
 
+<script src="rainbow.js"></script>
 <script src="bounce.js"></script>
-<script>bounce(document.getElementById('area'), document.getElementById('logo'), 34, 0.81, 0.24);</script>
+<script>
+  rainbow('.rb');
+  bounce(document.getElementById('area'), document.getElementById('logo'), 34, 0.81, 0.24);
+</script>
 </body>
 </html>

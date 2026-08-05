@@ -1,8 +1,24 @@
 {
-  "portfolio": [
-    "media/astronautas.png",
-    "media/sapiens.png",
-    "media/cesarvallejo.png"
-  ],
-  "reels": []
+  "portfolios": [
+    {
+      "id": "portfolio",
+      "title": "portfolio",
+      "w": 1080,
+      "h": 1350,
+      "secret": false,
+      "items": [
+        "media/astronautas.png",
+        "media/sapiens.png",
+        "media/cesarvallejo.png"
+      ]
+    },
+    {
+      "id": "reels",
+      "title": "reels",
+      "w": 1080,
+      "h": 1920,
+      "secret": true,
+      "items": []
+    }
+  ]
 }
